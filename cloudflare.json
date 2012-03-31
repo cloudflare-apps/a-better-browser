@@ -1,0 +1,56 @@
+{
+	"name": "No Old Internet Explorer",
+	"description": "Warns users about their old browser version.",
+	"keywords":
+	[
+		"advocacy"
+	],
+	"version": "0.0.1",
+	"contributors":
+	[
+		{
+			"name": "Pavel D.",
+			"email": "me@xpaw.ru"
+		},
+		{
+			"name": "Eugene M.",
+			"email": "theaqua@thegm.ru"
+		}
+	],
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com/xPaw/No-Old-IE.git"
+	},
+	"main": "./public/javascripts/no_old_ie.js",
+	"dependencies": { },
+	"licenses":
+	[
+		{
+			"type": "CC by-nc-sa",
+			"url": "https://creativecommons.org/licenses/by-nc-sa/3.0/"
+		}
+	],
+	"implements": "AMD",
+	"scripts": { },
+	"config":
+	{
+		"assets":
+		{
+			"logos":
+			{
+				"200px": "./public/images/no-old-ie-200.png",
+				"132px": "./public/images/no-old-ie-132.png"
+			}
+		},
+		"payment": { },
+		"details":
+		{
+			"Category": "Browsers",
+			"Language": "English",
+			"Restrictions": "None",
+			"Supporting": "<a href='http://www.ie6countdown.com/'>The Internet Explorer 6 Countdown</a>"
+		},
+		"interface": { }
+	}
+}
