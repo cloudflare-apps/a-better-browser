@@ -1,11 +1,11 @@
 {
-	"name": "No Old Internet Explorer",
+	"name": "A Better Browser",
 	"description": "Warns users about their old browser version.",
 	"keywords":
 	[
 		"advocacy"
 	],
-	"version": "0.0.1",
+	"version": "1.0 RC",
 	"contributors":
 	[
 		{
@@ -49,7 +49,7 @@
 			"Category": "Browsers",
 			"Language": "English",
 			"Restrictions": "None",
-			"Supporting": "<a href='http://www.ie6countdown.com/'>The Internet Explorer 6 Countdown</a>"
+			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"
 		},
 		"interface": { }
 	}
