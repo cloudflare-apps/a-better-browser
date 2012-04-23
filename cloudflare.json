@@ -3,7 +3,8 @@
 	"description": "Warns users with a simple message at the top of your website if their browser version is too old.",
 	"keywords":
 	[
-		"advocacy"
+		"advocacy",
+		"webmaster"
 	],
 	"version": "1.0 RC",
 	"contributors":
@@ -46,7 +47,7 @@
 		"payment": { },
 		"details":
 		{
-			"Category": "Browsers",
+			"Category": "Webmaster Tools",
 			"Language": "English",
 			"Restrictions": "None",
 			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"

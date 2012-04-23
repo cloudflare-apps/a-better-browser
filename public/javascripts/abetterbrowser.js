@@ -1,8 +1,6 @@
-CloudFlare.define( "no_old_ie", function( )
+CloudFlare.define( 'no_old_ie', [ 'cloudflare/dom' ], function( dom )
 {
-	var v = navigator.appVersion;
-	
-	if( v.indexOf( 'MSIE' ) != -1 && parseFloat( v.split( 'MSIE' )[ 1 ] ) <= 7 )
+	if( dom.internetExplorer !== undefined && dom.internetExplorer < 8 )
 	{
 		var cssCode = '#bad_browser { border-bottom: 1px solid #000; background: #45484d; position: absolute; width: 100%; top: 0; left: 0; padding: 8px 0; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; text-align: center; color: #FFF; } #bad_browser a { text-decoration: underline; color: #EBEBF4 } #bad_browser a:hover, #bad_browser a:active { text-decoration: none; color: #dbdbeb }';
 		
