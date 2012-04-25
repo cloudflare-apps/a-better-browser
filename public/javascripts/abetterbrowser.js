@@ -1,4 +1,4 @@
-CloudFlare.define( 'no_old_ie', [ 'cloudflare/dom' ], function( dom )
+CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( dom )
 {
 	if( dom.internetExplorer !== undefined && dom.internetExplorer < 8 )
 	{
