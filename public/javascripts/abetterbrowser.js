@@ -1,3 +1,12 @@
+/*
+ * Written by xPaw
+ *
+ * CloudFlare: https://www.cloudflare.com/apps/abetterbrowser
+ *
+ * Website: http://xpaw.ru
+ * GitHub: https://github.com/xPaw/CF-ABetterBrowser
+ */
+
 CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( dom )
 {
 	if( dom.internetExplorer !== undefined && dom.internetExplorer < 8 )
