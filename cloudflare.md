@@ -4,10 +4,10 @@ If the visitor is using Internet Explorer 6 or 7 (any version lower than 8), the
 
 The message reads:
 
-> "You are using an outdated browser. [More information &#187;](http://abetterbrowser.org/)"
+> You are using an outdated browser. [More information &#187;](http://abetterbrowser.org/)
 
 There are links to five different modern browsers there, including the most recent version of Internet Explorer.
 
-### Sourcecode
 
+### Sourcecode
 You may view sourcecode of this app at [GitHub](https://github.com/xPaw/CF-ABetterBrowser)
