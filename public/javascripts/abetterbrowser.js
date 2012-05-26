@@ -1,6 +1,4 @@
-/**
- * View on GitHub: https://github.com/xPaw/CF-ABetterBrowser
- */
+// View on GitHub: https://github.com/xPaw/CF-ABetterBrowser
 
 CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 {
