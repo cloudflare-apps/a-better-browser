@@ -18,7 +18,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 		 * Our style rules.
 		 */
 		var rules =
-			'#bad_browser {' +
+			'#cloudflare-old-browser {' +
 				'border-bottom: 1px solid #000;' +
 				'background: #45484d;' +
 				'position: absolute;' +
@@ -33,12 +33,12 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 				'color: #FFF;' +
 			'}' +
 			
-			'#bad_browser a {' +
+			'#cloudflare-old-browser a {' +
 				'text-decoration: underline;' +
 				'color: #EBEBF4' +
 			'}' +
 			
-			'#bad_browser a:hover, #bad_browser a:active {' +
+			'#cloudflare-old-browser a:hover, #cloudflare-old-browser a:active {' +
 				'text-decoration: none;' +
 				'color: #dbdbeb' +
 			'}';
@@ -66,7 +66,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 		 * Injects our message into the body.
 		 */
 		var message = document.createElement( 'div' );
-		message.id = 'bad_browser';
+		message.id = 'cloudflare-old-browser';
 		message.innerHTML = 'You are using an outdated browser. <a href="http://abetterbrowser.org/">More information &#187;</a>';
 		
 		document.getElementsByTagName( 'body' )[ 0 ].appendChild( message );
