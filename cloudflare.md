@@ -8,6 +8,9 @@ The message reads:
 
 There are links to five different modern browsers there, including the most recent version of Internet Explorer.
 
+### Styling the message
+
+You can style the message however you want! All you need to do is add styles with id *#bad_browser*
 
 ### Sourcecode
 You may view sourcecode of this app at [GitHub](https://github.com/xPaw/CF-ABetterBrowser)
