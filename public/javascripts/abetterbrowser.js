@@ -15,7 +15,23 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 	try
 	{
 		/**
-		 * Our style rules.
+		 * j.mp is bitly, let's collect some referral statistics.
+		 */
+		var moreInformationLink = 'http://j.mp/abetterbrowser';
+		
+		/**
+		 * Translations.
+		 */
+		var translations =
+		{
+			'en-US': 'You are using an outdated browser. <a href="' + moreInformationLink + '">More information &#187;</a>',
+			'ru'   : 'Вы используете устаревший браузер. <a href="' + moreInformationLink + '">Подробнее &#187;</a>',
+			'fr'   : 'Votre navigateur n\'est pas à jour. <a href="' + moreInformationLink + '">Plus d\'information &#187;</a>',
+			'da'   : 'Du bruger en ældre browser. <a href="' + moreInformationLink + '">Mere information &#187;</a>'
+		};
+		
+		/**
+		 * Style rules.
 		 */
 		var rules =
 			'#cloudflare-old-browser {' +
@@ -26,6 +42,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 				'width: 100%;' +
 				'top: 0;' +
 				'left: 0;' +
+				'overflow: hidden;' +
 				'padding: 8px 0;' +
 				'font-family: "Segoe UI", sans-serif;' +
 				'font-size: 18px;' +
@@ -41,6 +58,15 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 			'#cloudflare-old-browser a:hover, #cloudflare-old-browser a:active {' +
 				'text-decoration: none;' +
 				'color: #dbdbeb' +
+			'}' +
+			
+			'#cloudflare-old-browser .display-in-english {' +
+				'font-style: italic;' +
+				'margin-right: 10px;' +
+				'position: absolute;' +
+				'right: 0;' +
+				'display: inline;' +
+				'cursor: pointer' +
 			'}';
 		
 		/**
@@ -63,12 +89,40 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom' ], function( version )
 		head.insertBefore( style, firstChild );
 		
 		/**
-		 * Injects our message into the body.
+		 * Detect user's browser language.
+		 *
+		 * This is aimed at IE, so we don't try to get navigator.language.
+		 */
+		var language    = window.navigator.browserLanguage || window.navigator.userLanguage;
+		var translation = translations[ language ] || translations[ 'en-US' ];
+		
+		/**
+		 * Create our message.
 		 */
 		var message = document.createElement( 'div' );
 		message.id = 'cloudflare-old-browser';
-		message.innerHTML = 'You are using an outdated browser. <a href="http://abetterbrowser.org/">More information &#187;</a>';
+		message.innerHTML = translation;
 		
+		/**
+		 * Add "display in english" when displaying non-english phrase.
+		 */
+		if( translations[ language ] && language.substring( 0, 2 ) != 'en' )
+		{
+			var english = document.createElement( 'div' );
+			english.className = 'display-in-english';
+			english.innerText = 'display in english';
+			
+			english.onclick = function( )
+			{
+				message.innerHTML = translations[ 'en-US' ];
+			};
+			
+			message.appendChild( english );
+		}
+		
+		/**
+		 * Injects our message into the body.
+		 */
 		document.getElementsByTagName( 'body' )[ 0 ].appendChild( message );
 	}
 	catch( e )

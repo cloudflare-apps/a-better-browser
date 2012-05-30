@@ -6,7 +6,7 @@
 		"advocacy",
 		"webmaster"
 	],
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"contributors":
 	[
 		{
@@ -48,7 +48,7 @@
 		"details":
 		{
 			"Category": "Webmaster Tools",
-			"Language": "English",
+			"Language": "English, Russian, French, Danish",
 			"Restrictions": "None",
 			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"
 		},
