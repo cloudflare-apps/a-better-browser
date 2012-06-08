@@ -23,7 +23,7 @@
 		"type": "git",
 		"url": "https://github.com/xPaw/CF-ABetterBrowser.git"
 	},
-	"main": "./public/javascripts/abetterbrowser.min.js",
+	"main": "./public/javascripts/abetterbrowser.js",
 	"dependencies": { },
 	"licenses":
 	[
@@ -48,7 +48,7 @@
 		"details":
 		{
 			"Category": "Webmaster Tools",
-			"Language": "English, Russian, French, Danish",
+			"Language": "English, Russian, French, Danish, German",
 			"Restrictions": "None",
 			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"
 		},
