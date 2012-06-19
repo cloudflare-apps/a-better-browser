@@ -32,11 +32,11 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 		 */
 		var translations =
 		{
-			'en': 'You are using an outdated browser. <a href="' + moreInformationLink + '">More information &#187;</a>',
-			'ru': 'Вы используете устаревший браузер. <a href="' + moreInformationLink + '">Подробнее &#187;</a>',
-			'fr': 'Votre navigateur n\'est pas à jour. <a href="' + moreInformationLink + '">Plus d\'information &#187;</a>',
-			'da': 'Du bruger en ældre browser. <a href="' + moreInformationLink + '">Mere information &#187;</a>',
-			'de': 'Sie benutzen einen veralteten browser. <a href="' + moreInformationLink + '">Mehr informationen &#187;</a>'
+			'en': 'You are using an outdated browser. <a href="' + moreInformationLink + '" target="_blank">More information &#187;</a>',
+			'ru': 'Вы используете устаревший браузер. <a href="' + moreInformationLink + '" target="_blank">Подробнее &#187;</a>',
+			'fr': 'Votre navigateur n\'est pas à jour. <a href="' + moreInformationLink + '" target="_blank">Plus d\'information &#187;</a>',
+			'da': 'Du bruger en ældre browser. <a href="' + moreInformationLink + '" target="_blank">Mere information &#187;</a>',
+			'de': 'Sie benutzen einen veralteten browser. <a href="' + moreInformationLink + '" target="_blank">Mehr informationen &#187;</a>'
 		};
 		
 		/**
