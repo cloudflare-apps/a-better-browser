@@ -42,7 +42,11 @@
 			{
 				"200px": "./public/images/abetterbrowser-200.png",
 				"132px": "./public/images/abetterbrowser-132.png"
-			}
+			},
+			"detail_page" :
+			[
+				"./public/images/example.png"
+			]
 		},
 		"payment": { },
 		"details":

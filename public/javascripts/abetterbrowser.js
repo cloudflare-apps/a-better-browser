@@ -23,12 +23,12 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 	try
 	{
 		/**
-		 * j.mp is bitly, let's collect some referral statistics.
+		 * j.mp is bitly, let's collect some referral statistics
 		 */
 		var moreInformationLink = 'http://j.mp/abetterbrowser';
 		
 		/**
-		 * Translations.
+		 * Translations
 		 */
 		var translations =
 		{
@@ -42,11 +42,10 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 		};
 		
 		/**
-		 * Style rules.
+		 * Style rules
 		 */
 		var rules =
 			'#cloudflare-old-browser {' +
-				'border-bottom:1px solid #000;' +
 				'background:#45484d;' +
 				'position:absolute;' +
 				'z-index:100000;' +
@@ -56,8 +55,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 				'left:0;' +
 				'overflow:hidden;' +
 				'padding:8px 0;' +
-				'font-family:"Segoe UI", sans-serif;' +
-				'font-size:18px;' +
+				'font:18px/1.2 Arial,sans-serif;' +
 				'text-align:center;' +
 				'color:#FFF' +
 			'}' +
@@ -73,23 +71,25 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 			'}' +
 			
 			'#cloudflare-old-browser-close {' +
-				'background:url("//ajax.cloudflare.com/cdn-cgi/custom/images/button-x.png") no-repeat top left;' +
-				'width:20px;' +
-				'height:20px;' +
-				'border:none;' +
+				'background:#393b40;' +
+				'display:block;' +
+				'width:42px;' +
+				'height:42px;' +
 				'position:absolute;' +
-				'top:10px;' +
-				'right:10px;' +
-				'display:inline;' +
-				'cursor:pointer' +
+				'text-decoration:none !important;' +
+				'cursor:pointer;' +
+				'top:0;' +
+				'right:0;' +
+				'font-size:30px;' +
+				'line-height:1.4' +
 			'}' +
 			
 			'#cloudflare-old-browser-close:hover {' +
-				'background-position:right top' +
+				'background:#51555a' +
 			'}';
 		
 		/**
-		 * Injects style rules into the document to handle formatting.
+		 * Injects style rules into the document to handle formatting
 		 */
 		var style = document.createElement( 'style' );
 		style.id = 'cloudflare-abetterbrowser';
@@ -109,25 +109,26 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 		head.insertBefore( style, firstChild );
 		
 		/**
-		 * Detect user's browser language.
+		 * Detect user's browser language
 		 *
-		 * This is aimed at IE, so we don't try to get navigator.language.
+		 * This is aimed at IE, so we don't try to get navigator.language
 		 */
 		var language    = window.navigator.browserLanguage || window.navigator.userLanguage || 'en';
 		var translation = translations[ language.substring( 0, 2 ) ] || translations[ 'en' ];
 		
 		/**
-		 * Create our message.
+		 * Create our message
 		 */
 		var message = document.createElement( 'div' );
 		message.id = 'cloudflare-old-browser';
 		message.innerHTML = translation;
 		
 		/**
-		 * Create close button.
+		 * Create close button
 		 */
-		var closeButton = document.createElement( 'button' );
+		var closeButton = document.createElement( 'a' );
 		closeButton.id = 'cloudflare-old-browser-close';
+		closeButton.innerHTML = '&times;';
 		
 		message.appendChild( closeButton );
 		
@@ -136,13 +137,15 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], fu
 			document.body.removeChild( message );
 			
 			/**
-			 * Hide message for 7 days.
+			 * Hide message for 7 days
 			 */
 			user.getCookie( 'cfapp_abetterbrowser', 1, 7 );
+			
+			return false;
 		};
 		
 		/**
-		 * Injects our message into the body.
+		 * Injects our message into the body
 		 */
 		document.body.appendChild( message );
 	}
