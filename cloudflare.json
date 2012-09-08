@@ -6,7 +6,7 @@
 		"advocacy",
 		"webmaster"
 	],
-	"version": "1.0.9",
+	"version": "1.1.0",
 	"contributors":
 	[
 		{
@@ -66,12 +66,13 @@
 				"options":
 				[
 					{
-						"label": "7.0",
-						"value": "7"
-					},
-					{
 						"label": "6.0",
 						"value": "6"
+					},
+					{
+						"label": "7.0",
+						"value": "7",
+						"selected": true
 					},
 					{
 						"label": "8.0",
