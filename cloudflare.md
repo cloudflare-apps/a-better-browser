@@ -2,13 +2,16 @@ This CloudFlare app adds a simple text message at the top of your website if the
 
 ![Example](/images/apps/abetterbrowser/example.png "What it looks like")
 
-## Styling the message
+
+### Styling the message
 
 You can style the message however you want! All you need to do is add styles with id *#cloudflare-old-browser*. View sourcecode for more details.
 
-## Contribute your translation
+
+### Contribute your translation
 
 This app is opensource, so you are able to add a translation in your language simply by forking the repository at GitHub.
 
-## Sourcecode
+
+### Sourcecode
 You may view sourcecode of this app at [GitHub](https://github.com/xPaw/CF-ABetterBrowser)

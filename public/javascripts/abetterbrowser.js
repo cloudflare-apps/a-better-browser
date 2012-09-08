@@ -1,13 +1,14 @@
 // View on GitHub: https://github.com/xPaw/CF-ABetterBrowser
 
-CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user' ], function( version, user )
+CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abetterbrowser/config' ], function( version, user, config )
 {
-	var version = version.internetExplorer;
+	var version    = version.internetExplorer;
+	var maxVersion = parseInt( config.ie ) || 7;
 	
 	/**
 	 * Is user using IE? Is it old?
 	 */
-	if( version === undefined || version > 7 )
+	if( version === undefined || version > maxVersion )
 	{
 		return true;
 	}

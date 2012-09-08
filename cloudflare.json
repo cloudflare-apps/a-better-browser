@@ -6,7 +6,7 @@
 		"advocacy",
 		"webmaster"
 	],
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"contributors":
 	[
 		{
@@ -43,7 +43,7 @@
 				"200px": "./public/images/abetterbrowser-200.png",
 				"132px": "./public/images/abetterbrowser-132.png"
 			},
-			"detail_page" :
+			"detail_page":
 			[
 				"./public/images/example.png"
 			]
@@ -56,6 +56,37 @@
 			"Restrictions": "None",
 			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"
 		},
-		"interface": { }
+		"interface":
+		[
+			{
+				"id": "ie",
+				"name": "Internet Explorer",
+				"description": "Highest version of IE to display warning (Setting this to 7.0 will display warning in IE7 and lower, but not in IE8)",
+				"type": "select",
+				"options":
+				[
+					{
+						"label": "7.0",
+						"value": "7"
+					},
+					{
+						"label": "6.0",
+						"value": "6"
+					},
+					{
+						"label": "8.0",
+						"value": "8"
+					},
+					{
+						"label": "9.0",
+						"value": "9"
+					},
+					{
+						"label": "10.0",
+						"value": "10"
+					}
+				]
+			}
+		]
 	}
 }
