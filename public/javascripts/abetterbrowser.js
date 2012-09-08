@@ -68,7 +68,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			
 			'#cloudflare-old-browser a:hover, #cloudflare-old-browser a:active {' +
 				'text-decoration:none;' +
-				'color:#dbdbeb' +
+				'color:#DBDBEB' +
 			'}' +
 			
 			'#cloudflare-old-browser-close {' +
@@ -86,7 +86,8 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'}' +
 			
 			'#cloudflare-old-browser-close:hover {' +
-				'background:#51555a' +
+				'background:#E04343;' +
+				'color:#FFF' +
 			'}';
 		
 		/**
