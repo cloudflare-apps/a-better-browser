@@ -2,7 +2,7 @@
 	"name": "A Better Browser",
 	"description": "Warns users with a simple message at the top of your website if their browser version is too old.",
 	"category": "webmaster",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"main": "./public/javascripts/abetterbrowser.js",
 	"implements": "AMD",
 	"contributors":
@@ -40,7 +40,7 @@
 			"Category": "Webmaster Tools",
 			"Language": "English, Russian, French, Danish, German, Japanese, Turkish, Persian, Portuguese",
 			"Restrictions": "None",
-			"Supporting": "<a href='http://abetterbrowser.org/'>A Better Browser</a>"
+			"Supporting": "<a href='http://www.whatbrowser.org/'>What Browser? – Google</a>"
 		},
 		"interface":
 		[
