@@ -24,7 +24,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	}
 	
 	/**
-	 * j.mp is bitly, let's collect some referral statistics
+	 * Let's collect some referral statistics with link shortener service
 	 */
 	var moreInformationLink = 'http://goo.gl/OVoHF',
 	
