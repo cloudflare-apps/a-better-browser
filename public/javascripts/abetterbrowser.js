@@ -152,4 +152,5 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 * Injects our message into the body
 	 */
 	document.body.appendChild( message );
+	document.body.className += ' cloudflare-old-browser-body';
 } );
