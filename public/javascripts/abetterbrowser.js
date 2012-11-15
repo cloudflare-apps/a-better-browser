@@ -139,6 +139,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	closeButton.onclick = function( )
 	{
 		document.body.removeChild( message );
+		document.body.className = document.body.className.replace( new RegExp( '(\\s|^)cloudflare-old-browser-body(\\s|$)' ), '' );
 		
 		/**
 		 * Hide message for 7 days
