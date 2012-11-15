@@ -58,7 +58,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'left:0;' +
 			'overflow:hidden;' +
 			'padding:8px 0;' +
-			'font:18px/1.2 Arial,sans-serif;' +
+			'font:18px/26px Arial,sans-serif;' +
 			'text-align:center;' +
 			'color:#FFF' +
 		'}' +
@@ -84,7 +84,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'top:0;' +
 			'right:0;' +
 			'font-size:30px;' +
-			'line-height:1.4' +
+			'line-height:42px' +
 		'}' +
 		
 		'#cloudflare-old-browser-close:hover {' +
