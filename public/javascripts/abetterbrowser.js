@@ -5,20 +5,12 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	"use strict";
 	
 	version = version.internetExplorer;
-	var maxVersion = parseInt( config.ie, 10 ) || 7;
+	var maxVersion = parseInt( config.ie, 10 ) || 8;
 	
 	/**
-	 * Is user using IE? Is it old?
+	 * Is user using IE? Is it old? Did user close this message already?
 	 */
-	if( version === undefined || version > maxVersion )
-	{
-		return true;
-	}
-	
-	/**
-	 * Did user close this message already?
-	 */
-	if( user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
+	if( version === undefined || version > maxVersion || user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
 	{
 		return true;
 	}
@@ -27,6 +19,15 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 * Let's collect some referral statistics with link shortener service
 	 */
 	var moreInformationLink = 'http://goo.gl/OVoHF',
+	
+	doc = document,
+	
+	/**
+	 * Detect user's browser language
+	 *
+	 * This is aimed at IE, so we don't try to get navigator.language
+	 */
+	language = window.navigator.browserLanguage || 'en',
 	
 	/**
 	 * Translations
@@ -102,9 +103,17 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'}',
 	
 	/**
+	 * Have a single var statement, so it compiles better
+	 */
+	body = doc.body,
+	head = doc.getElementsByTagName( 'head' )[ 0 ],
+	message = doc.createElement( 'div' ),
+	closeButton = doc.createElement( 'a' ),
+	
+	/**
 	 * Injects style rules into the document to handle formatting
 	 */
-	style = document.createElement( 'style' );
+	style = doc.createElement( 'style' );
 	style.id = 'cloudflare-abetterbrowser';
 	style.setAttribute( 'type', 'text/css' );
 	
@@ -114,32 +123,20 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	}
 	else
 	{
-		style.appendChild( document.createTextNode( rules ) );
+		style.appendChild( doc.createTextNode( rules ) );
 	}
 	
-	var head = document.getElementsByTagName( 'head' )[ 0 ];
-	var firstChild = head.firstChild;
-	head.insertBefore( style, firstChild );
+	head.insertBefore( style, head.firstChild );
 	
 	/**
-	 * Detect user's browser language
-	 *
-	 * This is aimed at IE, so we don't try to get navigator.language
+	 * Message container
 	 */
-	var language    = window.navigator.browserLanguage || window.navigator.userLanguage || 'en',
-		translation = translations[ language.substring( 0, 2 ) ] || translations.en;
-	
-	/**
-	 * Create our message
-	 */
-	var message = document.createElement( 'div' );
 	message.id = 'cloudflare-old-browser';
-	message.innerHTML = translation;
+	message.innerHTML = translations[ language.substring( 0, 2 ) ] || translations.en;
 	
 	/**
-	 * Create close button
+	 * Close button
 	 */
-	var closeButton = document.createElement( 'a' );
 	closeButton.id = 'cloudflare-old-browser-close';
 	closeButton.innerHTML = '&times;';
 	
@@ -147,8 +144,8 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	
 	closeButton.onclick = function( )
 	{
-		document.body.removeChild( message );
-		document.body.className = document.body.className.replace( new RegExp( '(\\s|^)cloudflare-old-browser-body(\\s|$)' ), '' );
+		body.removeChild( message );
+		body.className = body.className.replace( new RegExp( '(\\s|^)cloudflare-old-browser-body(\\s|$)' ), '' );
 		
 		/**
 		 * Hide message for 7 days
@@ -161,6 +158,6 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	/**
 	 * Injects our message into the body
 	 */
-	document.body.appendChild( message );
-	document.body.className += ' cloudflare-old-browser-body';
+	body.appendChild( message );
+	body.className += ' cloudflare-old-browser-body';
 } );
