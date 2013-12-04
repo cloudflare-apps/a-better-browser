@@ -2,15 +2,14 @@
 
 CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abetterbrowser/config' ], function( version, user, config )
 {
-	"use strict";
-	
 	version = version.internetExplorer;
-	var maxVersion = parseInt( config.ie, 10 ) || 8;
 	
 	/**
 	 * Is user using IE? Is it old? Did user close this message already?
 	 */
-	if( version === undefined || version > maxVersion || user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
+	if( version === undefined
+	||  version > ( parseInt( config.ie, 10 ) || 8 )
+	||  user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
 	{
 		return true;
 	}
