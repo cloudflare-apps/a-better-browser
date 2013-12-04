@@ -27,7 +27,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 *
 	 * This is aimed at IE, so we don't try to get navigator.language
 	 */
-	language = window.navigator.browserLanguage || 'en',
+	language = (window.navigator.browserLanguage || 'en').toLowerCase(),
 	
 	/**
 	 * Translations
