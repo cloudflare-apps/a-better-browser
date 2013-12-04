@@ -55,7 +55,8 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'it': 'Stai usando un browser datato. <a href="' + moreInformationLink + '" target="_blank">Ulteriori informazioni &#187;</a>',
 		'el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. <a href="' + moreInformationLink + '" target="_blank">Περισσότερες πληροφορίες &#187;</a>',
 		'id': 'Anda menggunakan web browser versi lama. <a href="' + moreInformationLink + '" target="_blank">Informasi selengkapnya &#187;</a>',
-		'sr': 'Vi koristite zastarelu verziju browsera. <a href="' + moreInformationLink + '" target="_blank">Vi&#353;e informacija &#187;</a>'
+		'sr': 'Vi koristite zastarelu verziju browsera. <a href="' + moreInformationLink + '" target="_blank">Vi&#353;e informacija &#187;</a>',
+		'zh-tw': '你正在使用過時的瀏覽器。 <a href="' + moreInformationLink + '" target="_blank">更多訊息 &#187;</a>'
 	},
 	
 	/**
@@ -136,7 +137,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 * Message container
 	 */
 	message.id = 'cloudflare-old-browser';
-	message.innerHTML = translations[ language.substring( 0, 2 ) ] || translations.en;
+	message.innerHTML = translations[ language ] || translations[ language.substring( 0, 2 ) ] || translations.en;
 	
 	/**
 	 * Close button
