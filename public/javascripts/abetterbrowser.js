@@ -14,12 +14,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		return true;
 	}
 	
-	/**
-	 * Let's collect some referral statistics with link shortener service
-	 */
-	var moreInformationLink = 'http://goo.gl/OVoHF',
-	
-	doc = document,
+	var doc = document,
 	
 	/**
 	 * Detect user's browser language
@@ -27,6 +22,11 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 * This is aimed at IE, so we don't try to get navigator.language
 	 */
 	language = (window.navigator.browserLanguage || 'en').toLowerCase(),
+	
+	/**
+	 * Whatbrowser link with user's language
+	 */
+	moreInformationLink = 'http://www.whatbrowser.org/intl/' + language + '/',
 	
 	/**
 	 * Translations
