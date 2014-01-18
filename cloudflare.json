@@ -2,7 +2,7 @@
 	"name": "A Better Browser",
 	"description": "Warns users with a simple message at the top of your website if their browser version is too old.",
 	"category": "webmaster",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"main": "./public/javascripts/abetterbrowser.min.js",
 	"implements": "AMD",
 	"contributors":
