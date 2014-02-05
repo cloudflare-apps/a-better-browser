@@ -57,7 +57,8 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. <a href="' + moreInformationLink + '" target="_blank">Περισσότερες πληροφορίες &#187;</a>',
 		'id': 'Anda menggunakan web browser versi lama. <a href="' + moreInformationLink + '" target="_blank">Informasi selengkapnya &#187;</a>',
 		'sr': 'Vi koristite zastarelu verziju browsera. <a href="' + moreInformationLink + '" target="_blank">Vi&#353;e informacija &#187;</a>',
-		'zh-tw': '你正在使用過時的瀏覽器。 <a href="' + moreInformationLink + '" target="_blank">更多訊息 &#187;</a>'
+		'zh-tw': '你正在使用過時的瀏覽器。 <a href="' + moreInformationLink + '" target="_blank">更多訊息 &#187;</a>',
+		'sv': 'Du använder en gammal webbläsare. <a href="' + moreInformationLink + '" target="_blank">Mer information &#187;</a>'
 	},
 	
 	/**
