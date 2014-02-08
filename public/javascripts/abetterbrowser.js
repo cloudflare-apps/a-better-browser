@@ -42,7 +42,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'da': 'Du bruger en ældre browser. <a href="' + moreInformationLink + '" target="_blank">Mere information &#187;</a>',
 		'hu': 'A böngészője elavult. <a href="' + moreInformationLink + '" target="_blank">További információ &#187;</a>',
 		'de': 'Sie benutzen einen veralteten Browser. <a href="' + moreInformationLink + '" target="_blank">Mehr Informationen &#187;</a>',
-		'ja': 'あなたは、時代遅れのブラウザを使用しています。<a href="' + moreInformationLink + '" target="_blank">詳細情報 &#187;</a>',
+		'ja': '旧式のブラウザーを利用されています。<a href="' + moreInformationLink + '" target="_blank">詳細情報 &#187;</a>',
 		'fa': 'شما از مرورگری قدیمی استفاده می کنید. <a href="' + moreInformationLink + '" target="_blank">&#187;اطلاعات بیشتر</a>',
 		'tr': 'Çok eski bir tarayıcı kullanıyorsunuz. <a href="' + moreInformationLink + '" target="_blank">Daha fazla bilgi &#187;</a>',
 		'pt': 'Você está usando um navegador antigo. <a href="' + moreInformationLink + '" target="_blank">Mais informações &#187;</a>',
