@@ -2,14 +2,14 @@
 	"name": "A Better Browser",
 	"description": "Warns users with a simple message at the top of your website if their browser version is too old.",
 	"category": "webmaster",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"main": "./public/javascripts/abetterbrowser.min.js",
 	"implements": "AMD",
 	"contributors":
 	[
 		{
 			"name": "Pavel D.",
-			"email": "me@xpaw.ru"
+			"email": "abetterbrowser@xpaw.me"
 		},
 		{
 			"name": "Eugene R.",
