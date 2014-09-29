@@ -33,6 +33,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 */
 	translations =
 	{
+		'af': 'Jy gebruik \'n verouderde webblaaier. <a href="' + moreInformationLink + '" target="_blank">Meer inligting &#187;</a>',
 		'en': 'You are using an outdated browser. <a href="' + moreInformationLink + '" target="_blank">More information &#187;</a>',
 		'cs': 'Používáte zastaralý prohlížeč. <a href="' + moreInformationLink + '" target="_blank">Více informací &#187;</a>',
 		'sk': 'Používate zastaralý prehliadač. <a href="' + moreInformationLink + '" target="_blank">Viac informácií &#187;</a>',
