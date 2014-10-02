@@ -25,7 +25,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	{
 		version = versions[ i ];
 		
-		if( version[ 0 ] && version[ 0 ] >= version[ 1 ] )
+		if( version[ 0 ] && version[ 1 ] >= version[ 0 ] )
 		{
 			matched = true;
 			
