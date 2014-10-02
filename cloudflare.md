@@ -8,8 +8,6 @@ There are links to four different modern browsers at WhatBrowser.org, including 
 
 Note: Internet Explorer 9's [Compatibility view](http://windows.microsoft.com/en-US/internet-explorer/products/ie-9/features/compatibility-view) will trigger the message, since the browser pretends to be an earlier version of Internet Explorer.
 
-*This app was inspired by ABetterBrowser.org, though it's since been updated to point to WhatBrowser.org for a smoother user experience.*
-
 #### Styling the message
 You can style the message however you want! All you need to do is add styles with id *#cloudflare-old-browser*. View source code for more details.
 

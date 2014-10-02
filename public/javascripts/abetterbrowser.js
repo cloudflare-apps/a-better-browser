@@ -1,68 +1,95 @@
 // View on GitHub: https://github.com/xPaw/CF-ABetterBrowser
 
 CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abetterbrowser/config' ], function( version, user, config )
-{
-	version = version.internetExplorer;
-	
-	/**
-	 * Is user using IE? Is it old? Did user close this message already?
+{	/**
+	 * Did user close this message already?
 	 */
-	if( version === undefined
-	||  version > ( parseInt( config.ie, 10 ) || 8 )
-	||  user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
+	if( user.getCookie( 'cfapp_abetterbrowser' ) === 1 )
 	{
-		return true;
+		return;
 	}
 	
-	var doc = document,
+	/**
+	 * Compare each version and if there is one that matches
+	 */
+	var matched, i = 0, versions =
+	[
+		[ version.internetExplorer, ( parseInt( config.ie, 10 ) || 8 ) ],
+		[ version.firefox         , ( parseFloat( config.firefox ) || 0 ) ],
+		[ version.chrome          , ( parseFloat( config.chrome ) || 0 ) ],
+		[ version.opera           , ( parseFloat( config.opera ) || 0 ) ],
+		[ version.safari          , ( parseFloat( config.safari ) || 0 ) ]
+	], length = versions.length;
+	
+	for( ; i < length; i++ )
+	{
+		version = versions[ i ];
+		
+		if( version[ 0 ] && version[ 0 ] >= version[ 1 ] )
+		{
+			matched = true;
+			
+			break;
+		}
+	}
+	
+	if( !matched )
+	{
+		return;
+	}
+	
+	var nav = window.navigator, doc = document,
 	
 	/**
 	 * Detect user's browser language
 	 *
 	 * This is aimed at IE, so we don't try to get navigator.language
 	 */
-	language = (window.navigator.browserLanguage || 'en').toLowerCase(),
+	language = ( nav.language || nav.browserLanguage || 'en' ).toLowerCase(),
 	
 	/**
 	 * Whatbrowser link with user's language
 	 */
-	moreInformationLink = 'http://www.whatbrowser.org/intl/' + language + '/',
+	moreInformationLink = '<a href="http://www.whatbrowser.org/intl/' + language + '/" target="_blank">',
 	
 	/**
 	 * Translations
+	 * 
+	 * moreInformationLink contains <a>, and the element is closed before the message is inserted,
+	 * this is done to save some bytes when it is minified.
 	 */
 	translations =
 	{
-		'en': 'You are using an outdated browser. <a href="' + moreInformationLink + '" target="_blank">More information &#187;</a>',
+		'en': 'You are using an outdated browser. ' + moreInformationLink + 'More information &#187;',
 		
-		'af': 'Jy gebruik \'n verouderde webblaaier. <a href="' + moreInformationLink + '" target="_blank">Meer inligting &#187;</a>',
-		'ar': 'المتصفح الذي تستخدمه قديم وغير محدث. <a href="' + moreInformationLink + '" target="_blank"> المزيد من المعلومات &#187; </a>',
-		'cs': 'Používáte zastaralý prohlížeč. <a href="' + moreInformationLink + '" target="_blank">Více informací &#187;</a>',
-		'da': 'Du bruger en ældre browser. <a href="' + moreInformationLink + '" target="_blank">Mere information &#187;</a>',
-		'de': 'Sie benutzen einen veralteten Browser. <a href="' + moreInformationLink + '" target="_blank">Mehr Informationen &#187;</a>',
-		'el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. <a href="' + moreInformationLink + '" target="_blank">Περισσότερες πληροφορίες &#187;</a>',
-		'es': 'Su navegador está obsoleto. <a href="' + moreInformationLink + '" target="_blank">M&aacute;s informaci&oacute;n &#187;</a>',
-		'fa': 'شما از مرورگری قدیمی استفاده می کنید. <a href="' + moreInformationLink + '" target="_blank">&#187;اطلاعات بیشتر</a>',
-		'fi': 'Käytät vanhentunutta selainta. <a href="' + moreInformationLink + '" target="_blank">Lisää tietoa &#187;</a>',
-		'fr': 'Votre navigateur n\'est pas à jour. <a href="' + moreInformationLink + '" target="_blank">Plus d\'information &#187;</a>',
-		'he': 'דפדפן האינטרנט שלך אינו מעודכן. <a href="' + moreInformationLink + '" target="_blank">למידע נוסף &#187;</a>',
-		'hu': 'A böngészője elavult. <a href="' + moreInformationLink + '" target="_blank">További információ &#187;</a>',
-		'id': 'Anda menggunakan web browser versi lama. <a href="' + moreInformationLink + '" target="_blank">Informasi selengkapnya &#187;</a>',
-		'is': 'Þú ert að nota úreltan vafra. <a href="' + moreInformationLink + '" target="_blank">Nánari upplýsingar &#187;</a>',
-		'it': 'Stai usando un browser datato. <a href="' + moreInformationLink + '" target="_blank">Ulteriori informazioni &#187;</a>',
-		'ja': '旧式のブラウザーを利用されています。<a href="' + moreInformationLink + '" target="_blank">詳細情報 &#187;</a>',
-		'nl': 'U gebruikt op dit moment een verouderde webbrowser. <a href="' + moreInformationLink + '" target="_blank">Meer informatie &#187;</a>',
-		'pl': 'Używasz przestarzałej przeglądarki. <a href="' + moreInformationLink + '" target="_blank">Więcej informacji &#187;</a>',
-		'pt': 'Você está usando um navegador antigo. <a href="' + moreInformationLink + '" target="_blank">Mais informações &#187;</a>',
-		'ro': 'Browserul dumneavoastră este depăşit. <a href="' + moreInformationLink + '" target="_blank">Mai multe informații &#187;</a>',
-		'ru': 'Вы используете устаревший браузер. <a href="' + moreInformationLink + '" target="_blank">Подробнее &#187;</a>',
-		'sk': 'Používate zastaralý prehliadač. <a href="' + moreInformationLink + '" target="_blank">Viac informácií &#187;</a>',
-		'sr': 'Vi koristite zastarelu verziju browsera. <a href="' + moreInformationLink + '" target="_blank">Vi&#353;e informacija &#187;</a>',
-		'sv': 'Du använder en gammal webbläsare. <a href="' + moreInformationLink + '" target="_blank">Mer information &#187;</a>',
-		'tr': 'Çok eski bir tarayıcı kullanıyorsunuz. <a href="' + moreInformationLink + '" target="_blank">Daha fazla bilgi &#187;</a>',
-		'vi': 'Trình duyệt bạn dùng đã lỗi thời rồi. <a href="' + moreInformationLink + '" target="_blank">Thêm thông tin &#187;</a>',
-		'zh': '您的浏览器版本过旧。 <a href="' + moreInformationLink + '" target="_blank">更多信息 &#187;</a>',
-		'zh-tw': '你正在使用過時的瀏覽器。 <a href="' + moreInformationLink + '" target="_blank">更多訊息 &#187;</a>'
+		'af': 'Jy gebruik \'n verouderde webblaaier. ' + moreInformationLink + 'Meer inligting &#187;',
+		'ar': 'المتصفح الذي تستخدمه قديم وغير محدث. ' + moreInformationLink + ' المزيد من المعلومات &#187; ',
+		'cs': 'Používáte zastaralý prohlížeč. ' + moreInformationLink + 'Více informací &#187;',
+		'da': 'Du bruger en ældre browser. ' + moreInformationLink + 'Mere information &#187;',
+		'de': 'Sie benutzen einen veralteten Browser. ' + moreInformationLink + 'Mehr Informationen &#187;',
+		'el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. ' + moreInformationLink + 'Περισσότερες πληροφορίες &#187;',
+		'es': 'Su navegador está obsoleto. ' + moreInformationLink + 'M&aacute;s informaci&oacute;n &#187;',
+		'fa': 'شما از مرورگری قدیمی استفاده می کنید. ' + moreInformationLink + '&#187;اطلاعات بیشتر',
+		'fi': 'Käytät vanhentunutta selainta. ' + moreInformationLink + 'Lisää tietoa &#187;',
+		'fr': 'Votre navigateur n\'est pas à jour. ' + moreInformationLink + 'Plus d\'information &#187;',
+		'he': 'דפדפן האינטרנט שלך אינו מעודכן. ' + moreInformationLink + 'למידע נוסף &#187;',
+		'hu': 'A böngészője elavult. ' + moreInformationLink + 'További információ &#187;',
+		'id': 'Anda menggunakan web browser versi lama. ' + moreInformationLink + 'Informasi selengkapnya &#187;',
+		'is': 'Þú ert að nota úreltan vafra. ' + moreInformationLink + 'Nánari upplýsingar &#187;',
+		'it': 'Stai usando un browser datato. ' + moreInformationLink + 'Ulteriori informazioni &#187;',
+		'ja': '旧式のブラウザーを利用されています。' + moreInformationLink + '詳細情報 &#187;',
+		'nl': 'U gebruikt op dit moment een verouderde webbrowser. ' + moreInformationLink + 'Meer informatie &#187;',
+		'pl': 'Używasz przestarzałej przeglądarki. ' + moreInformationLink + 'Więcej informacji &#187;',
+		'pt': 'Você está usando um navegador antigo. ' + moreInformationLink + 'Mais informações &#187;',
+		'ro': 'Browserul dumneavoastră este depăşit. ' + moreInformationLink + 'Mai multe informații &#187;',
+		'ru': 'Вы используете устаревший браузер. ' + moreInformationLink + 'Подробнее &#187;',
+		'sk': 'Používate zastaralý prehliadač. ' + moreInformationLink + 'Viac informácií &#187;',
+		'sr': 'Vi koristite zastarelu verziju browsera. ' + moreInformationLink + 'Vi&#353;e informacija &#187;',
+		'sv': 'Du använder en gammal webbläsare. ' + moreInformationLink + 'Mer information &#187;',
+		'tr': 'Çok eski bir tarayıcı kullanıyorsunuz. ' + moreInformationLink + 'Daha fazla bilgi &#187;',
+		'vi': 'Trình duyệt bạn dùng đã lỗi thời rồi. ' + moreInformationLink + 'Thêm thông tin &#187;',
+		'zh': '您的浏览器版本过旧。 ' + moreInformationLink + '更多信息 &#187;',
+		'zh-tw': '你正在使用過時的瀏覽器。 ' + moreInformationLink + '更多訊息 &#187;'
 	},
 	
 	/**
@@ -143,7 +170,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	 * Message container
 	 */
 	message.id = 'cloudflare-old-browser';
-	message.innerHTML = translations[ language ] || translations[ language.substring( 0, 2 ) ] || translations.en;
+	message.innerHTML = ( translations[ language ] || translations[ language.substring( 0, 2 ) ] || translations.en ) + '</a>';
 	
 	/**
 	 * Close button
