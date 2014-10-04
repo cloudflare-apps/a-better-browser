@@ -108,7 +108,8 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'padding:8px 0;' +
 			'font:18px/26px Arial,sans-serif;' +
 			'text-align:center;' +
-			'color:#FFF' +
+			'color:#FFF;' +
+			'box-sizing:content-box' +
 		'}' +
 		
 		'#cloudflare-old-browser a {' +
