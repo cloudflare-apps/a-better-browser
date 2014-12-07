@@ -72,7 +72,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'fa': 'شما از مرورگری قدیمی استفاده می کنید. ' + moreInformationLink + '&#187;اطلاعات بیشتر',
 		'fi': 'Käytät vanhentunutta selainta. ' + moreInformationLink + 'Lisää tietoa &#187;',
 		'fr': 'Votre navigateur n\'est pas à jour. ' + moreInformationLink + 'Plus d\'information &#187;',
-		'ga': 'Tá tú ag baint úsáide as brabhsálaí atá as dáta .' + moreInformationLink + 'Tuilleadh eolais &#187;',
+		'ga': 'Tá tú ag baint úsáide as brabhsálaí atá as dáta. ' + moreInformationLink + 'Tuilleadh eolais &#187;',
 		'he': 'דפדפן האינטרנט שלך אינו מעודכן. ' + moreInformationLink + 'למידע נוסף &#187;',
 		'hu': 'A böngészője elavult. ' + moreInformationLink + 'További információ &#187;',
 		'id': 'Anda menggunakan web browser versi lama. ' + moreInformationLink + 'Informasi selengkapnya &#187;',
