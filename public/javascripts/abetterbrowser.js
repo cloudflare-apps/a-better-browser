@@ -42,8 +42,6 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	
 	/**
 	 * Detect user's browser language
-	 *
-	 * This is aimed at IE, so we don't try to get navigator.language
 	 */
 	language = ( nav.language || nav.browserLanguage || 'en' ).toLowerCase(),
 	
