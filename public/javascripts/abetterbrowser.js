@@ -77,6 +77,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'is': 'Þú ert að nota úreltan vafra. ' + moreInformationLink + 'Nánari upplýsingar &#187;',
 		'it': 'Stai usando un browser datato. ' + moreInformationLink + 'Ulteriori informazioni &#187;',
 		'ja': '旧式のブラウザーを利用されています。' + moreInformationLink + '詳細情報 &#187;',
+		'lv': 'Jūs izmantojat novecojušu pārlūku. ' + moreInformationLink + 'Uzzināt vairāk &#187;',
 		'nl': 'U gebruikt op dit moment een verouderde webbrowser. ' + moreInformationLink + 'Meer informatie &#187;',
 		'pl': 'Używasz przestarzałej przeglądarki. ' + moreInformationLink + 'Więcej informacji &#187;',
 		'pt': 'Você está usando um navegador antigo. ' + moreInformationLink + 'Mais informações &#187;',
