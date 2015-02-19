@@ -79,6 +79,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'ja': '旧式のブラウザーを利用されています。' + moreInformationLink + '詳細情報 &#187;',
 		'lv': 'Jūs izmantojat novecojušu pārlūku. ' + moreInformationLink + 'Uzzināt vairāk &#187;',
 		'nl': 'U gebruikt op dit moment een verouderde webbrowser. ' + moreInformationLink + 'Meer informatie &#187;',
+		'nb-NO': 'Du bruker en utdatert nettleser. ' + moreInformationLink + 'Mer informasjon &#187;',
 		'pl': 'Używasz przestarzałej przeglądarki. ' + moreInformationLink + 'Więcej informacji &#187;',
 		'pt': 'Você está usando um navegador desatualizado. ' + moreInformationLink + 'Mais informações &#187;',
 		'ro': 'Browserul dumneavoastră este depăşit. ' + moreInformationLink + 'Mai multe informații &#187;',
