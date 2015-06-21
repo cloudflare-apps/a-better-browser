@@ -48,7 +48,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	/**
 	 * Whatbrowser link with user's language
 	 */
-	moreInformationLink = '<a href="http://www.whatbrowser.org/intl/' + language + '/" target="_blank">',
+	moreInformationLink = '<a href="https://www.whatbrowser.org/intl/' + language + '/" target="_blank">',
 	
 	/**
 	 * Translations
