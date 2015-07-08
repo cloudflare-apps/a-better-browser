@@ -8,7 +8,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	{
 		return;
 	}
-	
+
 	/**
 	 * Compare each version and if there is one that matches
 	 */
@@ -20,46 +20,46 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		[ version.opera           , ( parseFloat( config.opera ) || 0 ) ],
 		[ version.safari          , ( parseFloat( config.safari ) || 0 ) ]
 	], length = versions.length;
-	
+
 	for( ; i < length; i++ )
 	{
 		version = versions[ i ];
-		
+
 		if( version[ 0 ] && version[ 1 ] >= version[ 0 ] )
 		{
 			matched = true;
-			
+
 			break;
 		}
 	}
-	
+
 	if( !matched )
 	{
 		return;
 	}
-	
+
 	var nav = window.navigator, doc = document,
-	
+
 	/**
 	 * Detect user's browser language
 	 */
 	language = ( nav.language || nav.browserLanguage || 'en' ).toLowerCase(),
-	
+
 	/**
 	 * Whatbrowser link with user's language
 	 */
 	moreInformationLink = '<a href="https://www.whatbrowser.org/intl/' + language + '/" target="_blank">',
-	
+
 	/**
 	 * Translations
-	 * 
+	 *
 	 * moreInformationLink contains <a>, and the element is closed before the message is inserted,
 	 * this is done to save some bytes when it is minified.
 	 */
 	translations =
 	{
 		'en': 'You are using an outdated browser. ' + moreInformationLink + 'More information &#187;',
-		
+
 		'af': 'Jy gebruik \'n verouderde webblaaier. ' + moreInformationLink + 'Meer inligting &#187;',
 		'ar': 'المتصفح الذي تستخدمه قديم وغير محدث. ' + moreInformationLink + ' المزيد من المعلومات &#187; ',
 		'be': 'Вы выкарыстоўваеце састарэлы браўзэр. ' + moreInformationLink + 'Падрабязьней &#187;',
@@ -99,7 +99,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'zh': '您的浏览器版本过旧。 ' + moreInformationLink + '更多信息 &#187;',
 		'zh-tw': '你正在使用過時的瀏覽器。 ' + moreInformationLink + '更多訊息 &#187;'
 	},
-	
+
 	/**
 	 * Style rules
 	 */
@@ -119,17 +119,17 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'color:#FFF;' +
 			'box-sizing:content-box' +
 		'}' +
-		
+
 		'#cloudflare-old-browser a {' +
 			'text-decoration:underline;' +
 			'color:#EBEBF4' +
 		'}' +
-		
+
 		'#cloudflare-old-browser a:hover, #cloudflare-old-browser a:active {' +
 			'text-decoration:none;' +
 			'color:#DBDBEB' +
 		'}' +
-		
+
 		'#cloudflare-old-browser-close {' +
 			'background:#393b40;' +
 			'display:block;' +
@@ -143,12 +143,12 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 			'font-size:30px;' +
 			'line-height:42px' +
 		'}' +
-		
+
 		'#cloudflare-old-browser-close:hover {' +
 			'background:#E04343;' +
 			'color:#FFF' +
 		'}',
-	
+
 	/**
 	 * Have a single var statement, so it compiles better
 	 */
@@ -156,14 +156,14 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	head = doc.getElementsByTagName( 'head' )[ 0 ],
 	message = doc.createElement( 'div' ),
 	closeButton = doc.createElement( 'a' ),
-	
+
 	/**
 	 * Injects style rules into the document to handle formatting
 	 */
 	style = doc.createElement( 'style' );
 	style.id = 'cloudflare-abetterbrowser';
 	style.setAttribute( 'type', 'text/css' );
-	
+
 	if( style.styleSheet )
 	{
 		style.styleSheet.cssText = rules;
@@ -172,36 +172,36 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 	{
 		style.appendChild( doc.createTextNode( rules ) );
 	}
-	
+
 	head.insertBefore( style, head.firstChild );
-	
+
 	/**
 	 * Message container
 	 */
 	message.id = 'cloudflare-old-browser';
 	message.innerHTML = ( translations[ language ] || translations[ language.substring( 0, 2 ) ] || translations.en ) + '</a>';
-	
+
 	/**
 	 * Close button
 	 */
 	closeButton.id = 'cloudflare-old-browser-close';
 	closeButton.innerHTML = '&times;';
-	
+
 	message.appendChild( closeButton );
-	
+
 	closeButton.onclick = function( )
 	{
 		body.removeChild( message );
 		body.className = body.className.replace( new RegExp( '(\\s|^)cloudflare-old-browser-body(\\s|$)' ), '' );
-		
+
 		/**
 		 * Hide message for 7 days
 		 */
 		user.getCookie( 'cfapp_abetterbrowser', 1, 7 );
-		
+
 		return false;
 	};
-	
+
 	/**
 	 * Injects our message into the body
 	 */
