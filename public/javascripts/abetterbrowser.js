@@ -65,7 +65,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'be': 'Вы выкарыстоўваеце састарэлы браўзэр. ' + moreInformationLink + 'Падрабязьней &#187;',
 		'bn': 'আপনি একটি সেকেলে ঘরানার ব্রাউজার ব্যবহার করছেন। '  + moreInformationLink +  'বিস্তারিত দেখুন &#187;',
 		'cs': 'Používáte zastaralý prohlížeč. ' + moreInformationLink + 'Více informací &#187;',
-		'da': 'Du bruger en ældre browser. ' + moreInformationLink + 'Mere information &#187;',
+		'da': 'Du bruger en forældet browser. ' + moreInformationLink + 'Mere information &#187;',
 		'de': 'Sie benutzen einen veralteten Browser. ' + moreInformationLink + 'Mehr Informationen &#187;',
 		'el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. ' + moreInformationLink + 'Περισσότερες πληροφορίες &#187;',
 		'eo': 'Vi uzas antikvan retumilon. ' + moreInformationLink + 'Pli informo &#187;',
