@@ -100,7 +100,7 @@ CloudFlare.define( 'abetterbrowser', [ 'cloudflare/dom', 'cloudflare/user', 'abe
 		'tr': 'Çok eski bir tarayıcı kullanıyorsunuz. ' + moreInformationLink + 'Daha fazla bilgi &#187;',
 		'vi': 'Trình duyệt bạn dùng đã lỗi thời rồi. ' + moreInformationLink + 'Thêm thông tin &#187;',
 		'zh': '您的浏览器版本过旧。 ' + moreInformationLink + '更多信息 &#187;',
-		'zh-tw': '你正在使用過時的瀏覽器。 ' + moreInformationLink + '更多訊息 &#187;'
+		'zh-tw': '你正在使用過時的瀏覽器。 ' + moreInformationLink + '詳細資訊 &#187;'
 	},
 
 	/**
