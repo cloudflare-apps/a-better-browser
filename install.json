@@ -1,0 +1,56 @@
+{
+  "resources": {
+    "body": [
+      {
+        "type": "style",
+        "src": "./build/app.css"
+      },
+      {
+        "type": "script",
+        "src": "./build/app.js"
+      }
+    ]
+  },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "internetExplorer": {
+        "order": 0,
+        "title": "Internet Explorer",
+        "description": "Highest version of Internet Explorer to display warning.",
+        "type": "number"
+      },
+      "edge": {
+        "order": 1,
+        "title": "Microsoft Edge",
+        "description": "Highest version of Microsoft Edge to display warning.",
+        "type": "number"
+      },
+      "firefox": {
+        "order": 2,
+        "title": "Mozilla Firefox",
+        "description": "Highest version of Mozilla Firefox to display warning.",
+        "type": "number"
+      },
+      "chrome": {
+        "order": 3,
+        "title": "Google Chrome",
+        "description": "Highest version of Google Chrome to display warning.",
+        "type": "number"
+      },
+      "safari": {
+        "order": 4,
+        "title": "Safari",
+        "description": "Highest version of Safari to display warning",
+        "type": "number"
+      }
+    }
+  }
+}

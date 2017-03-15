@@ -1,0 +1,22 @@
+{
+  "name": "cf-app-a-better-browser",
+  "version": "2.0.0",
+  "description": "Warns users with a simple message at the top of your website if their browser version is too old.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xPaw/CF-ABetterBrowser.git"
+  },
+  "private": true,
+  "contributors": [
+    {
+      "name": "Pavel Djundik",
+      "email": "abetterbrowser@xpaw.me"
+    },
+    {
+      "name": "Eugene Rodionov",
+      "email": "abetterbrowser@theaqua.im"
+    }
+  ]
+}
