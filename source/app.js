@@ -39,7 +39,7 @@ import translations from './translations'
 
     appElement.setAttribute('data-visibility', visibility)
     document.body.setAttribute('data-browser-version', browserVersion)
-    document.body.setAttribute('data-browser-name', browserVersion)
+    document.body.setAttribute('data-browser-name', browser.name)
   }
 
   if (document.readyState === 'loading') {
