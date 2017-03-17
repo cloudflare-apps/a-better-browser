@@ -4,7 +4,7 @@
   "description": "Warns users with a simple message at the top of your website if their browser version is too old.",
   "scripts": {
     "start": "webpack --watch --colors",
-    "build": "NODE_ENV=production webpack -p --colors"
+    "build": "NODE_ENV=production webpack --define process.env.NODE_ENV=\"'production'\" --colors"
   },
   "repository": {
     "type": "git",
