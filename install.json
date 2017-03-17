@@ -21,34 +21,52 @@
   },
   "options": {
     "properties": {
-      "internetExplorer": {
+      "ie": {
         "order": 0,
+        "minimum": 0,
         "title": "Internet Explorer",
-        "description": "Highest version of Internet Explorer to display warning.",
+        "description": "Minimum supported version of Internet Explorer.",
+        "placeholder": "0",
+        "type": "number"
+      },
+      "ie": {
+        "order": 0,
+        "minimum": 0,
+        "title": "Internet Explorer",
+        "description": "Minimum supported version of Internet Explorer.",
+        "placeholder": "0",
         "type": "number"
       },
       "edge": {
         "order": 1,
+        "minimum": 0,
         "title": "Microsoft Edge",
-        "description": "Highest version of Microsoft Edge to display warning.",
+        "description": "Minimum supported version of Microsoft Edge.",
+        "placeholder": "0",
         "type": "number"
       },
       "firefox": {
         "order": 2,
+        "minimum": 0,
         "title": "Mozilla Firefox",
-        "description": "Highest version of Mozilla Firefox to display warning.",
+        "description": "Minimum supported version of Mozilla Firefox.",
+        "placeholder": "0",
         "type": "number"
       },
       "chrome": {
         "order": 3,
+        "minimum": 0,
         "title": "Google Chrome",
-        "description": "Highest version of Google Chrome to display warning.",
+        "description": "Minimum supported version of Google Chrome.",
+        "placeholder": "0",
         "type": "number"
       },
       "safari": {
         "order": 4,
+        "minimum": 0,
         "title": "Safari",
-        "description": "Highest version of Safari to display warning",
+        "description": "Minimum supported version of Safari.",
+        "placeholder": "0",
         "type": "number"
       }
     }
