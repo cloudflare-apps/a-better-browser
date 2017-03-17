@@ -1,10 +1,8 @@
 cloudflare-app[app-id="a-better-browser"] {
   display: block;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: #45484d;
-  color: #FFF;
+  color: #fff;
+  line-height: 1.45;
   position: fixed;
   z-index: 90000000;
   top: 0;
@@ -21,23 +19,28 @@ cloudflare-app[app-id="a-better-browser"][data-visibility="hidden"] {
 
 cloudflare-app[app-id="a-better-browser"] cloudflare-app-message {
   display: block;
-  flex: 1 1 auto;
 }
 
 cloudflare-app[app-id="a-better-browser"] a {
   text-decoration: underline;
-  color: #EBEBF4;
+  color: #ebebf4;
 }
 
 cloudflare-app[app-id="a-better-browser"] a:hover,
 cloudflare-app[app-id="a-better-browser"] a:active {
-  color: #DBDBEB;
+  color: #dbdbeb;
 }
 
 cloudflare-app[app-id="a-better-browser"] cloudflare-app-close {
   display: block;
   cursor: pointer;
   font-size: 1.5em;
+  position: absolute;
+  right: .4em;
+  top: .35em;
+  height: 1em;
+  width: 1em;
+  line-height: 1;
 }
 
 cloudflare-app[app-id="a-better-browser"] cloudflare-app-close:active {
@@ -46,5 +49,5 @@ cloudflare-app[app-id="a-better-browser"] cloudflare-app-close:active {
 
 cloudflare-app[app-id="a-better-browser"] cloudflare-app-close:hover {
   opacity: .9em;
-  color: #FFF;
+  color: #fff;
 }
