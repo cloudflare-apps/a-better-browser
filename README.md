@@ -2,6 +2,13 @@
 
 Giving CloudFlare site owners a way to promote upgrading their old Internet Explorer browser.
 
+## Usage
+
+Install the dependencies with `npm install`
+
+* `npm start` Watch for file changes and compile them.
+* `npm run build` Compiles your JavaScript and CSS once for release.
+
 ## How to add a language
 * Fork this repository
 * Edit `translations.js` and your language in alphabetical order *(leave English at the top)*
