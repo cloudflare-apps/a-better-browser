@@ -3,7 +3,7 @@ import translations from './translations'
 
 (function () {
   let options = INSTALL_OPTIONS
-  const {localStorage} = window
+  const {localStorage = {}} = window
   const DAY_DURATION = 1000 * 60 * 60 * 24
   const now = new Date()
   const weekAgo = new Date(now - DAY_DURATION * 7)
