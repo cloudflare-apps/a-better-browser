@@ -1,6 +1,6 @@
-# A Better Browser – CloudFlare App
+# A Better Browser – Cloudflare App
 
-Giving CloudFlare site owners a way to promote upgrading their old Internet Explorer browser.
+Giving Cloudflare site owners a way to promote upgrading their old Internet Explorer browser.
 
 ## Usage
 
