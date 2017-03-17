@@ -38,8 +38,8 @@ import translations from './translations'
     if (INSTALL_ID === 'preview') visibility = 'visible'
 
     appElement.setAttribute('data-visibility', visibility)
-    document.body.setAttribute('data-browser-version', browserVersion)
-    document.body.setAttribute('data-browser-name', browser.name)
+    document.body.setAttribute('data-cf-browser-version', browserVersion)
+    document.body.setAttribute('data-cf-browser-name', browser.name)
   }
 
   if (document.readyState === 'loading') {
