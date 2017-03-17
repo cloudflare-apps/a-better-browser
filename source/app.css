@@ -1,4 +1,5 @@
 cloudflare-app[app-id="a-better-browser"] {
+  display: block;
   display: flex;
   align-items: center;
   justify-content: space-between;
