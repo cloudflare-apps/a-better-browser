@@ -19,7 +19,7 @@ import translations from './translations'
     const browserMinimum = options[browser.name] || 0
 
     const outdated = browserVersion < browserMinimum
-    const seenRecently = localStorage.dismissedAt && weekAgo >= new Date(parseInt(localStorage.dismissedAt, 10))
+    const seenRecently = localStorage.cfBetterBrowserDismissedAt && weekAgo >= new Date(parseInt(localStorage.cfBetterBrowserDismissedAt, 10))
     let visibility = !seenRecently && outdated ? 'visible' : 'hidden'
 
     appElement.innerHTML = `
@@ -34,7 +34,7 @@ import translations from './translations'
 
     closeButton.addEventListener('click', () => {
       appElement.setAttribute('data-visibility', 'hidden')
-      localStorage.dismissedAt = now.getTime()
+      localStorage.cfBetterBrowserDismissedAt = now.getTime()
     })
 
     if (INSTALL_ID === 'preview') visibility = 'visible'
