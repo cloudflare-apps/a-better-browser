@@ -3,23 +3,25 @@ import translations from './translations'
 
 (function () {
   let options = INSTALL_OPTIONS
-  let appElement
   const {localStorage} = window
   const DAY_DURATION = 1000 * 60 * 60 * 24
   const now = new Date()
   const weekAgo = new Date(now - DAY_DURATION * 7)
+
   const language = window.navigator.language || window.navigator.userLanguage || 'en'
   const [messageLabel, moreLabel] = translations[language] || translations[language.substring(0, 2)] || translations.en
+
+  const appElement = document.createElement('cloudflare-app')
+  appElement.setAttribute('app-id', 'a-better-browser')
 
   function updateElement () {
     const browserVersion = parseFloat(browser.version.match(/(\d.)\./))
     const browserMinimum = options[browser.name] || 0
+
     const outdated = browserVersion < browserMinimum
     const seenRecently = localStorage.dismissedAt && weekAgo >= new Date(parseInt(localStorage.dismissedAt, 10))
     let visibility = !seenRecently && outdated ? 'visible' : 'hidden'
 
-    appElement = INSTALL.createElement({selector: 'body', method: 'prepend'}, appElement)
-    appElement.setAttribute('app-id', 'a-better-browser')
     appElement.innerHTML = `
       <cloudflare-app-message>
         ${messageLabel}
@@ -37,7 +39,10 @@ import translations from './translations'
 
     if (INSTALL_ID === 'preview') visibility = 'visible'
 
+    if (visibility !== 'visible') return
+
     appElement.setAttribute('data-visibility', visibility)
+    document.body.appendChild(appElement)
 
     document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
     document.body.setAttribute('data-cf-browser-version', browserVersion)
