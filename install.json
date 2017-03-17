@@ -24,14 +24,7 @@
       "ie": {
         "order": 0,
         "minimum": 0,
-        "title": "Internet Explorer",
-        "description": "Minimum supported version of Internet Explorer.",
-        "placeholder": "0",
-        "type": "number"
-      },
-      "ie": {
-        "order": 0,
-        "minimum": 0,
+        "default": 9,
         "title": "Internet Explorer",
         "description": "Minimum supported version of Internet Explorer.",
         "placeholder": "0",
