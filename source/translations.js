@@ -12,6 +12,7 @@ export default {
   'el': ['Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης.', 'Περισσότερες πληροφορίες &#187;'],
   'eo': ['Vi uzas antikvan retumilon.', 'Pli informo &#187;'],
   'es': ['Su navegador está obsoleto.', 'M&aacute;s informaci&oacute;n &#187;'],
+  'et': ['Sa kasutad aegunud ebaturvalist veebilehitsejat.', 'Rohkem informatsiooni &#187;'],
   'fa': ['شما از مرورگری قدیمی استفاده می کنید.', '&#187;اطلاعات بیشتر'],
   'fi': ['Käytät vanhentunutta selainta.', 'Lisää tietoa &#187;'],
   'fr': ['Votre navigateur n\'est pas à jour.', 'Plus d\'information &#187;'],
