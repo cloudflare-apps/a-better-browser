@@ -11,7 +11,7 @@ import translations from './translations'
   const weekAgo = new Date(now - DAY_DURATION * 7)
   const seenRecently = localStorage.cfBetterBrowserDismissedAt && new Date(parseInt(localStorage.cfBetterBrowserDismissedAt, 10)) >= weekAgo
 
-  const browserVersion = parseFloat(browser.version.match(/(\d.)\./))
+  const browserVersion = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
   const browserMinimum = options[browser.name] || 0
 
   const legacyBodyClass = 'cloudflare-old-browser-body'
