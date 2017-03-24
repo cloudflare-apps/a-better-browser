@@ -1,11 +1,17 @@
-# A Better Browser – CloudFlare App
+# A Better Browser – Cloudflare App
 
-Giving CloudFlare site owners a way to promote upgrading their old Internet Explorer browser.
+Giving Cloudflare site owners a way to promote upgrading their old Internet Explorer browser.
+
+## Usage
+
+Install the dependencies with `npm install`
+
+* `npm start` Watch for file changes and compile them.
+* `npm run build` Compiles your JavaScript and CSS once for release.
 
 ## How to add a language
 * Fork this repository
-* Edit `abetterbrowser.js` and your language in alphabetical order *(leave English at the top)*
-* Add your language in `cloudflare.json` file (`Language` key, in alphabetical order)
+* Edit `translations.js` and your language in alphabetical order *(leave English at the top)*
 * Commit your changes, preferably in one commit
 * Make a pull request
 

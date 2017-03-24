@@ -1,0 +1,71 @@
+{
+  "resources": {
+    "body": [
+      {
+        "type": "style",
+        "src": "./build/app.css"
+      },
+      {
+        "type": "script",
+        "src": "./build/app.js"
+      }
+    ]
+  },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "ie": {
+        "order": 0,
+        "minimum": 0,
+        "default": 9,
+        "title": "Internet Explorer",
+        "description": "Minimum supported version of Internet Explorer.",
+        "placeholder": "0",
+        "type": "number"
+      },
+      "edge": {
+        "order": 1,
+        "minimum": 0,
+        "default": 25,
+        "title": "Microsoft Edge",
+        "description": "Minimum supported version of Microsoft Edge.",
+        "placeholder": "0",
+        "type": "number"
+      },
+      "firefox": {
+        "order": 2,
+        "minimum": 0,
+        "default": 45.8,
+        "title": "Mozilla Firefox",
+        "description": "Minimum supported version of Mozilla Firefox.",
+        "placeholder": "0",
+        "type": "number"
+      },
+      "chrome": {
+        "order": 3,
+        "minimum": 0,
+        "default": 48,
+        "title": "Google Chrome",
+        "description": "Minimum supported version of Google Chrome.",
+        "placeholder": "0",
+        "type": "number"
+      },
+      "safari": {
+        "order": 4,
+        "minimum": 0,
+        "default": 9,
+        "title": "Safari",
+        "description": "Minimum supported version of Safari.",
+        "placeholder": "0",
+        "type": "number"
+      }
+    }
+  }
+}
