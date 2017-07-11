@@ -5,7 +5,6 @@ import translations from './translations'
   let options = INSTALL_OPTIONS
   let appElement
   const {localStorage = {}} = window
-  const {body} = document
   const DAY_DURATION = 1000 * 60 * 60 * 24
   const now = new Date()
   const weekAgo = new Date(now - DAY_DURATION * 7)
@@ -17,7 +16,7 @@ import translations from './translations'
   const legacyBodyClass = 'cloudflare-old-browser-body'
 
   function removeBodyClass () {
-    body.className = body.className.replace(new RegExp(`(?:^|s)${legacyBodyClass}(?!S)`, 'g'), '')
+    document.body.className = document.body.className.replace(new RegExp(`(?:^|s)${legacyBodyClass}(?!S)`, 'g'), '')
   }
 
   function updateElement () {
@@ -52,12 +51,12 @@ import translations from './translations'
     })
 
     appElement.setAttribute('data-visibility', visibility)
-    body.appendChild(appElement)
+    document.body.appendChild(appElement)
 
-    body.className += legacyBodyClass
-    body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
-    body.setAttribute('data-cf-browser-version', browserVersion)
-    body.setAttribute('data-cf-browser-name', browser.name)
+    document.body.className += legacyBodyClass
+    document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
+    document.body.setAttribute('data-cf-browser-version', browserVersion)
+    document.body.setAttribute('data-cf-browser-name', browser.name)
   }
 
   if (document.readyState === 'loading') {
