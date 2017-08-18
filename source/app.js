@@ -31,7 +31,7 @@ import translations from './translations'
     const [messageLabel, moreLabel] = translations[language] || translations[language.substring(0, 2)] || translations.en
 
     appElement = appElement || document.createElement('cloudflare-app')
-    appElement.setAttribute('app-id', 'a-better-browser')
+    appElement.setAttribute('app', 'a-better-browser')
     appElement.id = 'cloudflare-old-browser' // Legacy ID
 
     appElement.innerHTML = `
