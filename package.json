@@ -19,6 +19,10 @@
     {
       "name": "Eugene Rodionov",
       "email": "abetterbrowser@theaqua.im"
+    },
+    {
+      "name": "Cloudflare Inc.",
+      "email": "app-developer-help@cloudflare.com"
     }
   ],
   "dependencies": {
