@@ -22,7 +22,7 @@
     }
   ],
   "dependencies": {
-    "detect-browser": "^1.6.2"
+    "detect-browser": "TeffenEllis/detect-browser#fcd6fb3f04fefc7cf8921743432762ab04b36d6a"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",

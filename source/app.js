@@ -10,8 +10,15 @@ import translations from './translations'
   const weekAgo = new Date(now - DAY_DURATION * 7)
   const seenRecently = localStorage.cfBetterBrowserDismissedAt && new Date(parseInt(localStorage.cfBetterBrowserDismissedAt, 10)) >= weekAgo
 
-  const browserVersion = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
-  const browserMinimum = options[browser.name] || 0
+  const detected = {}
+
+  try {
+    detected.name = browser.name
+    detected.version = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
+    detected.minimum = options[browser.name] || 0
+  } catch (e) {
+    return
+  }
 
   const legacyBodyClass = 'cloudflare-old-browser-body'
 
@@ -20,7 +27,7 @@ import translations from './translations'
   }
 
   function updateElement () {
-    const outdated = browserVersion < browserMinimum
+    const outdated = detected.version < detected.minimum
     let visibility = !seenRecently && outdated ? 'visible' : 'hidden'
 
     removeBodyClass()
@@ -55,8 +62,8 @@ import translations from './translations'
 
     document.body.className += legacyBodyClass
     document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
-    document.body.setAttribute('data-cf-browser-version', browserVersion)
-    document.body.setAttribute('data-cf-browser-name', browser.name)
+    document.body.setAttribute('data-cf-browser-version', detected.version)
+    document.body.setAttribute('data-cf-browser-name', detected.name)
   }
 
   if (document.readyState === 'loading') {
