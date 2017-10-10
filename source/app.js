@@ -1,4 +1,4 @@
-import browser from 'detect-browser'
+import {detect} from 'detect-browser'
 import translations from './translations'
 
 (function () {
@@ -13,6 +13,8 @@ import translations from './translations'
   const detected = {}
 
   try {
+    const browser = detect()
+
     detected.name = browser.name
     detected.version = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
     detected.minimum = options[browser.name] || 0
@@ -32,6 +34,11 @@ import translations from './translations'
 
     removeBodyClass()
     if (INSTALL_ID === 'preview') visibility = 'visible'
+
+    document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
+    document.body.setAttribute('data-cf-browser-version', detected.version)
+    document.body.setAttribute('data-cf-browser-name', detected.name)
+
     if (visibility !== 'visible') return
 
     const language = window.navigator.language || window.navigator.userLanguage || 'en'
@@ -61,9 +68,6 @@ import translations from './translations'
     document.body.appendChild(appElement)
 
     document.body.className += legacyBodyClass
-    document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
-    document.body.setAttribute('data-cf-browser-version', detected.version)
-    document.body.setAttribute('data-cf-browser-name', detected.name)
   }
 
   if (document.readyState === 'loading') {
