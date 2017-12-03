@@ -1,38 +1,51 @@
-import browser from 'detect-browser'
+import {detect} from 'detect-browser'
 import translations from './translations'
 
 (function () {
   let options = INSTALL_OPTIONS
   let appElement
   const {localStorage = {}} = window
-  const {body} = document
   const DAY_DURATION = 1000 * 60 * 60 * 24
   const now = new Date()
   const weekAgo = new Date(now - DAY_DURATION * 7)
   const seenRecently = localStorage.cfBetterBrowserDismissedAt && new Date(parseInt(localStorage.cfBetterBrowserDismissedAt, 10)) >= weekAgo
 
-  const browserVersion = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
-  const browserMinimum = options[browser.name] || 0
+  const detected = {}
+
+  try {
+    const browser = detect()
+
+    detected.name = browser.name
+    detected.version = parseFloat(browser.version.match(/^(\d+\.?\d*)/))
+    detected.minimum = options[browser.name] || 0
+  } catch (e) {
+    return
+  }
 
   const legacyBodyClass = 'cloudflare-old-browser-body'
 
   function removeBodyClass () {
-    body.className = body.className.replace(new RegExp(`(?:^|s)${legacyBodyClass}(?!S)`, 'g'), '')
+    document.body.className = document.body.className.replace(new RegExp(`(?:^|s)${legacyBodyClass}(?!S)`, 'g'), '')
   }
 
   function updateElement () {
-    const outdated = browserVersion < browserMinimum
+    const outdated = detected.version < detected.minimum
     let visibility = !seenRecently && outdated ? 'visible' : 'hidden'
 
     removeBodyClass()
     if (INSTALL_ID === 'preview') visibility = 'visible'
+
+    document.body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
+    document.body.setAttribute('data-cf-browser-version', detected.version)
+    document.body.setAttribute('data-cf-browser-name', detected.name)
+
     if (visibility !== 'visible') return
 
     const language = window.navigator.language || window.navigator.userLanguage || 'en'
     const [messageLabel, moreLabel] = translations[language] || translations[language.substring(0, 2)] || translations.en
 
     appElement = appElement || document.createElement('cloudflare-app')
-    appElement.setAttribute('app-id', 'a-better-browser')
+    appElement.setAttribute('app', 'a-better-browser')
     appElement.id = 'cloudflare-old-browser' // Legacy ID
 
     appElement.innerHTML = `
@@ -52,12 +65,9 @@ import translations from './translations'
     })
 
     appElement.setAttribute('data-visibility', visibility)
-    body.appendChild(appElement)
+    document.body.appendChild(appElement)
 
-    body.className += legacyBodyClass
-    body.setAttribute('data-cf-browser-state', outdated ? 'outdated' : 'modern')
-    body.setAttribute('data-cf-browser-version', browserVersion)
-    body.setAttribute('data-cf-browser-name', browser.name)
+    document.body.className += legacyBodyClass
   }
 
   if (document.readyState === 'loading') {

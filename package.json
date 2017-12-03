@@ -19,10 +19,14 @@
     {
       "name": "Eugene Rodionov",
       "email": "abetterbrowser@theaqua.im"
+    },
+    {
+      "name": "Cloudflare Inc.",
+      "email": "app-developer-help@cloudflare.com"
     }
   ],
   "dependencies": {
-    "detect-browser": "^1.6.2"
+    "detect-browser": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
