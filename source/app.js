@@ -51,7 +51,7 @@ import translations from './translations'
     appElement.innerHTML = `
       <cloudflare-app-message>
         ${messageLabel}
-        <a href="https://browsehappy.com/?locale=${language}" target="_blank">${moreLabel}</a>
+        <a href="https://browsehappy.com/?locale=${language}" target="_blank" rel="noopener noreferrer">${moreLabel}</a>
         </cloudflare-app-message>
       <cloudflare-app-close>&times;</cloudflare-app-close>
     `
