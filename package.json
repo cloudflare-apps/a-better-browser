@@ -30,10 +30,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "babel-core": "^6.24.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.4.1",
-    "babel-preset-env": "^1.2.2",
+    "babel-preset-env": "^1.7.0",
     "cross-env": "^3.2.4",
     "css-loader": "^0.27.3",
     "extract-loader": "^0.1.0",
