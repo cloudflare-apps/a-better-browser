@@ -41,7 +41,7 @@ import translations from './translations'
 
     if (visibility !== 'visible') return
 
-    const language = window.navigator.language || window.navigator.userLanguage || 'en'
+    const language = (window.navigator.language || window.navigator.userLanguage || 'en').toLowerCase()
     const [messageLabel, moreLabel] = translations[language] || translations[language.substring(0, 2)] || translations.en
 
     appElement = appElement || document.createElement('cloudflare-app')
